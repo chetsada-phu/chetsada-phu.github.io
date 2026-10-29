@@ -8,6 +8,8 @@
         content="Chetsada Phummee: Economics student working across data science, machine learning engineering, applied AI, and data analytics. Projects, hackathon wins, and KBTG experience.">
     <title>Chetsada Phummee | Data Science, ML & AI Portfolio</title>
     <link rel="canonical" href="https://chetsada-phu.github.io/">
+    <meta name="theme-color" content="#5140be">
+    <link rel="icon" href="assets/brand/favicon.svg" type="image/svg+xml">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Chetsada Phummee Portfolio">
     <meta property="og:title" content="Chetsada Phummee | Data Science, ML & AI">
@@ -23,609 +25,37 @@
     <meta name="twitter:title" content="Chetsada Phummee | Data Science, ML & AI">
     <meta name="twitter:description" content="Projects, forecasting studies, hackathon wins, and KBTG experience.">
     <meta name="twitter:image" content="https://chetsada-phu.github.io/assets/portfolio-cover-v1.png">
-    <style>
-        :root {
-            --ink: #182b43;
-            --muted: #52677b;
-            --blue: #225bc5;
-            --pale: #edf3fc;
-            --paper: #fafcfe;
-            --line: #d6e0ec;
-            --gold: #9a6520
-        }
-
-        * {
-            box-sizing: border-box
-        }
-
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: 95px
-        }
-
-        body {
-            margin: 0;
-            color: var(--ink);
-            background: var(--paper);
-            font: 16px/1.65 'Avenir Next', 'Segoe UI', sans-serif
-        }
-
-        a {
-            color: inherit;
-            text-underline-offset: 5px
-        }
-
-        a:hover {
-            color: var(--blue)
-        }
-
-        a:focus-visible,
-        button:focus-visible,
-        summary:focus-visible {
-            outline: 3px solid var(--blue);
-            outline-offset: 5px
-        }
-
-        .wrap {
-            max-width: 1180px;
-            margin: auto;
-            padding: 0 34px
-        }
-
-        header {
-            position: sticky;
-            top: 0;
-            background: #fafcfef5;
-            border-bottom: 1px solid var(--line);
-            z-index: 10
-        }
-
-        nav {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            min-height: 76px;
-            gap: 22px
-        }
-
-        .brand {
-            font-weight: 800;
-            text-decoration: none;
-            letter-spacing: -.5px
-        }
-
-        .brand span {
-            color: var(--blue)
-        }
-
-        .navlinks {
-            display: flex;
-            gap: 25px;
-            font-size: 13px
-        }
-
-        .navlinks a {
-            text-decoration: none
-        }
-
-        .hero {
-            display: grid;
-            grid-template-columns: 1.3fr 1fr;
-            gap: 70px;
-            align-items: center;
-            padding: 94px 0 76px
-        }
-
-        .eyebrow {
-            font: 11px/1.5 ui-monospace, monospace;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--blue)
-        }
-
-        h1 {
-            font-family: 'Avenir Next', 'Segoe UI', sans-serif;
-            font-size: clamp(46px, 5.9vw, 77px);
-            line-height: 1.06;
-            letter-spacing: -3px;
-            margin: 22px 0
-        }
-
-        h1 em {
-            font-style: normal;
-            color: var(--blue)
-        }
-
-        .lead {
-            font-size: 18px;
-            color: var(--muted);
-            max-width: 580px
-        }
-
-        .buttons {
-            display: flex;
-            gap: 13px;
-            flex-wrap: wrap;
-            margin-top: 28px
-        }
-
-        .button {
-            border: 1px solid var(--line);
-            padding: 11px 20px;
-            text-decoration: none;
-            font-size: 14px;
-            border-radius: 6px;
-            display: inline-block
-        }
-
-        .primary {
-            background: var(--blue);
-            color: white;
-            border-color: var(--blue)
-        }
-
-        .primary:hover {
-            background: #17479f;
-            color: white
-        }
-
-        .intro-note {
-            margin-top: 28px;
-            font: 12px/1.8 ui-monospace, monospace;
-            color: var(--muted)
-        }
-
-        .hero-panel {
-            background: var(--pale);
-            padding: 30px;
-            border-radius: 18px;
-            transform: rotate(2deg)
-        }
-
-        .hero-panel>* {
-            transform: rotate(-2deg)
-        }
-
-        .research-title {
-            font-size: 12px;
-            color: var(--blue);
-            letter-spacing: 1px
-        }
-
-        .research-question {
-            font-size: 25px;
-            line-height: 1.35;
-            font-weight: 650;
-            margin: 20px 0
-        }
-
-        .flow-row {
-            display: grid;
-            grid-template-columns: 32px 1fr;
-            gap: 12px;
-            border-top: 1px solid #c6d5e9;
-            padding: 16px 0
-        }
-
-        .flow-row b {
-            font: 13px ui-monospace, monospace;
-            color: var(--blue)
-        }
-
-        .flow-row span {
-            font-size: 14px
-        }
-
-        .flow-row small {
-            display: block;
-            color: var(--muted);
-            font-size: 12px
-        }
-
-        .strip {
-            display: flex;
-            gap: 45px;
-            border-top: 1px solid var(--line);
-            border-bottom: 1px solid var(--line);
-            padding: 22px 0;
-            flex-wrap: wrap
-        }
-
-        .strip span {
-            color: var(--muted);
-            font-size: 13px
-        }
-
-        .strip strong {
-            display: block;
-            color: var(--ink);
-            font-size: 18px
-        }
-
-        .section {
-            padding: 78px 0
-        }
-
-        .section-head {
-            display: flex;
-            justify-content: space-between;
-            align-items: end;
-            gap: 30px;
-            margin-bottom: 30px
-        }
-
-        .section-head p {
-            max-width: 420px;
-            color: var(--muted);
-            font-size: 14px;
-            margin: 0
-        }
-
-        h2 {
-            font-size: 36px;
-            line-height: 1.2;
-            letter-spacing: -1px;
-            margin: 10px 0
-        }
-
-        h3 {
-            line-height: 1.25;
-            font-size: 24px;
-            margin: 10px 0
-        }
-
-        .awards {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 22px
-        }
-
-        .award {
-            border: 1px solid var(--line);
-            border-radius: 12px;
-            overflow: hidden;
-            background: white
-        }
-
-        .photo {
-            display: block;
-            width: 100%;
-            aspect-ratio: 1.38;
-            object-fit: cover
-        }
-
-        .award:nth-child(2) .photo {
-            object-position: center 55%
-        }
-
-        .card-body {
-            padding: 24px
-        }
-
-        .badge {
-            font: 11px ui-monospace, monospace;
-            color: var(--gold);
-            text-transform: uppercase;
-            letter-spacing: .7px
-        }
-
-        .sub {
-            color: var(--muted);
-            font-size: 13px
-        }
-
-        .card-body p {
-            font-size: 14px;
-            color: var(--muted)
-        }
-
-        .metric {
-            font-size: 14px;
-            color: var(--blue);
-            font-weight: 650
-        }
-
-        .tags {
-            display: flex;
-            gap: 7px;
-            flex-wrap: wrap;
-            margin: 16px 0
-        }
-
-        .tags span {
-            font: 11px ui-monospace, monospace;
-            background: var(--pale);
-            padding: 5px 8px;
-            border-radius: 4px
-        }
-
-        .evidence {
-            display: flex;
-            gap: 15px;
-            font-size: 12px;
-            flex-wrap: wrap;
-            margin-top: 18px
-        }
-
-        details {
-            border-top: 1px solid var(--line);
-            margin-top: 20px;
-            padding-top: 12px
-        }
-
-        summary {
-            cursor: pointer;
-            color: var(--blue);
-            font-size: 13px;
-            font-weight: 600
-        }
-
-        details p {
-            font-size: 13px
-        }
-
-        details strong {
-            color: var(--ink)
-        }
-
-        .projects {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 22px
-        }
-
-        .project {
-            border: 1px solid var(--line);
-            border-radius: 12px;
-            background: white;
-            padding: 30px
-        }
-
-        .project .type {
-            font: 11px ui-monospace, monospace;
-            color: var(--muted);
-            text-transform: uppercase;
-            letter-spacing: 1px
-        }
-
-        .project p {
-            color: var(--muted);
-            font-size: 15px
-        }
-
-        .project h3 {
-            font-size: 27px
-        }
-
-        .finding {
-            padding: 15px 18px;
-            background: var(--pale);
-            border-left: 3px solid var(--blue);
-            font-size: 14px;
-            margin: 22px 0
-        }
-
-        .finding small {
-            display: block;
-            margin-top: 5px;
-            color: var(--muted)
-        }
-
-        .section.tint {
-            background: var(--pale);
-            border-radius: 20px;
-            padding: 48px;
-            margin: 0 -26px
-        }
-
-        .experience {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 50px
-        }
-
-        .experience ul {
-            padding-left: 19px;
-            color: var(--muted);
-            font-size: 15px
-        }
-
-        .experience li {
-            margin-bottom: 12px
-        }
-
-        .about {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 70px
-        }
-
-        .about p {
-            color: var(--muted)
-        }
-
-        .skillrow {
-            padding: 12px 0;
-            border-bottom: 1px solid var(--line);
-            font-size: 14px
-        }
-
-        .skillrow strong {
-            display: block;
-            color: var(--blue);
-            font-size: 12px;
-            margin-bottom: 3px
-        }
-
-        .contact {
-            padding: 60px 0;
-            border-top: 1px solid var(--line)
-        }
-
-        .contact h2 {
-            font-size: 43px
-        }
-
-        .contact p {
-            color: var(--muted)
-        }
-
-        footer {
-            border-top: 1px solid var(--line);
-            padding: 22px 0;
-            color: var(--muted);
-            font-size: 12px
-        }
-
-        .footer-row {
-            display: flex;
-            justify-content: space-between;
-            gap: 20px
-        }
-
-        .skip {
-            position: absolute;
-            left: -9999px
-        }
-
-        .skip:focus {
-            left: 20px;
-            top: 20px;
-            background: white;
-            padding: 10px;
-            z-index: 20
-        }
-
-        @media(max-width:850px) {
-            .hero {
-                grid-template-columns: 1fr;
-                gap: 35px;
-                padding-top: 55px
-            }
-
-            .hero-panel {
-                transform: none
-            }
-
-            .hero-panel>* {
-                transform: none
-            }
-
-            .awards {
-                grid-template-columns: 1fr
-            }
-
-            .photo {
-                aspect-ratio: 1.8
-            }
-
-            .award:nth-child(2) .photo {
-                object-fit: contain;
-                background: #e5f4f4
-            }
-
-            .experience,
-            .about {
-                grid-template-columns: 1fr;
-                gap: 20px
-            }
-
-            .navlinks {
-                gap: 12px;
-                font-size: 11px
-            }
-
-            .section-head {
-                display: block
-            }
-
-            .section-head p {
-                margin-top: 15px
-            }
-
-            .section {
-                padding: 50px 0
-            }
-
-            .strip {
-                gap: 24px
-            }
-
-            .projects {
-                grid-template-columns: 1fr
-            }
-        }
-
-        @media(max-width:520px) {
-            .wrap {
-                padding: 0 22px
-            }
-
-            .navlinks a:nth-child(3),
-            .navlinks a:nth-child(4) {
-                display: none
-            }
-
-            h1 {
-                letter-spacing: -2px
-            }
-
-            .section.tint {
-                margin: 0;
-                padding: 26px
-            }
-
-            .project {
-                padding: 22px
-            }
-
-            .footer-row {
-                display: block
-            }
-
-            .contact h2 {
-                font-size: 34px
-            }
-        }
-
-        @media(prefers-reduced-motion:reduce) {
-            html {
-                scroll-behavior: auto
-            }
-        }
-
-        .link-arrow {
-            display: inline-block;
-            width: 1em;
-            height: 1em;
-            vertical-align: -.15em;
-            margin-left: .2em;
-            flex-shrink: 0
-        }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="assets/styles.css">
+    <script src="assets/site.js" defer></script>
 </head>
 
 <body>
     <a class="skip" href="#main">Skip to content</a>
     <header>
-        <nav class="wrap" aria-label="Main navigation"><a class="brand" href="#">Chetsada<span>.</span></a>
-            <div class="navlinks"><a href="#wins">Hackathon wins</a><a href="#experience">Experience</a><a
-                    href="#personal">Personal projects</a><a href="#research">Forecasting</a><a href="#contact">Contact
-                    <svg class="link-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-                        <path d="M7 17 17 7M7 7h10v10" />
-                    </svg></a></div>
+        <nav class="wrap" aria-label="Main navigation">
+            <a class="brand" href="#main" aria-label="Chetsada, home"><span class="brand-mark" aria-hidden="true">cp</span>Chetsada<span>.</span></a>
+            <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="navigation">
+                Menu <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" aria-hidden="true"><path d="M3 6h14M3 14h14"/></svg>
+            </button>
+            <div class="navlinks" id="navigation">
+                <a href="#wins">Hackathons</a><a href="#experience">Internship</a>
+                <a href="#personal">Selected work</a><a href="#about">About</a>
+                <a class="nav-contact" href="#contact">Let’s talk <span aria-hidden="true">↗</span></a>
+            </div>
         </nav>
     </header>
     <main id="main" class="wrap">
         <section class="hero">
             <div>
-                <div class="eyebrow">Chetsada “Jayda” Phummee · Bangkok, Thailand</div>
-                <h1>Economics.<br>Data.<br><em>Better decisions.</em></h1>
+                <div class="eyebrow"><span class="status-dot" aria-hidden="true"></span>Economics × Data Science × Applied AI</div>
+                <h1>From a good<br>question to a<br><em>better decision.</em></h1>
+                <p class="hero-name">Hi, I’m Chetsada. You can call me Jayda.</p>
                 <p class="lead">I'm an Economics student working across Data Science, ML Engineering, Applied AI, and
                     Data Analytics. I analyze data, build and evaluate models, and develop AI applications that support
                     practical decisions.</p>
-                <div class="buttons"><a class="button primary" href="#personal">Explore my projects <svg
+                <div class="buttons"><a class="button primary" href="#wins">Explore my work <svg
                             class="link-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
                             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
                             <path d="M12 4v16m-6-6 6 6 6-6" />
@@ -640,17 +70,16 @@
                             aria-hidden="true" focusable="false">
                             <path d="M7 17 17 7M7 7h10v10" />
                         </svg></a></div>
-                <div class="intro-note">Chulalongkorn University · Economics<br>Expected graduation: November 2027</div>
+                <div class="intro-note">Based in Bangkok, Thailand · Chulalongkorn University<br>Economics, graduating November 2027</div>
             </div>
             <aside class="hero-panel" aria-label="My approach to data science">
-                <div class="research-title">HOW I APPROACH DATA & AI</div>
-                <p class="research-question">What would make this model useful in practice?</p>
-                <div class="flow-row"><b>01</b><span>Start with the decision<small>Define the question, baseline, and
-                            constraints.</small></span></div>
-                <div class="flow-row"><b>02</b><span>Test against what matters<small>Respect time, compare approaches,
-                            examine errors.</small></span></div>
-                <div class="flow-row"><b>03</b><span>Explain what the evidence supports<small>Report the result and its
-                            limits.</small></span></div>
+                <div class="panel-sticker" aria-hidden="true">Less guesswork.<br>More evidence.</div>
+                <div class="panel-top"><span class="panel-label">jayda / working-notes</span><span class="panel-dots" aria-hidden="true"><i></i><i></i><i></i></span></div>
+                <p class="research-question">A model is only useful<br>if the decision gets better.</p>
+                <div class="flow-row"><b>01</b><span>Start with the question<small>Define the decision, a useful baseline, and the constraints.</small></span><i class="flow-check" aria-hidden="true">↘</i></div>
+                <div class="flow-row"><b>02</b><span>Follow the evidence<small>Compare models. Respect time. Understand the errors.</small></span><i class="flow-check" aria-hidden="true">↘</i></div>
+                <div class="flow-row"><b>03</b><span>Make it useful<small>Build the application. Explain the result and its limits.</small></span><i class="flow-check" aria-hidden="true">✓</i></div>
+                <div class="panel-foot"><span>question → evidence → decision</span><span>Always a work in progress</span></div>
             </aside>
         </section>
         <div class="strip"><span><strong>Economics × Data & AI</strong>Analysis, modeling, and AI
@@ -660,8 +89,8 @@
         <section class="section" id="wins">
             <div class="section-head">
                 <div>
-                    <div class="eyebrow">Built with a team. Tested in competition.</div>
-                    <h2>Hackathon wins</h2>
+                    <div class="eyebrow">Three first-place finishes · Team projects</div>
+                    <h2>Better together.</h2>
                 </div>
                 <p>Three winning team projects. My contributions span model development, data preparation, evaluation,
                     and supporting data systems.</p>
@@ -764,15 +193,10 @@
             <div class="experience">
                 <div>
                     <div class="eyebrow">Industry experience</div>
-                    <h2><a href="https://www.kbtg.tech/" target="_blank" rel="noopener"
-                            aria-label="KBTG official website"
-                            style="display:inline-flex;background:#182b43;padding:19px 23px;border-radius:8px;margin:8px 0"><img
-                                src="assets/brand/kbtg.svg" alt="KBTG" width="138" height="46"
-                                style="display:block;max-width:100%;height:auto"></a></h2>
-                    <h3
-                        style="font-size:clamp(25px,2.6vw,32px);line-height:1.2;letter-spacing:-.7px;margin:18px 0 12px">
+                    <h2><a class="company-logo" href="https://www.kbtg.tech/" target="_blank" rel="noopener" aria-label="KBTG official website"><img src="assets/brand/kbtg.svg" alt="KBTG" width="138" height="46"></a></h2>
+                    <h3 class="role-title">
                         AI/ML Engineer Intern</h3>
-                    <p style="font-size:15px;line-height:1.5;color:var(--muted);margin:0 0 12px">Intelligence
+                    <p class="team-name">Intelligence
                         Engineering and Data Technology Team</p>
                     <p class="sub">May to July 2026</p>
                 </div>
@@ -797,14 +221,18 @@
         <section class="section" id="personal">
             <div class="section-head">
                 <div>
-                    <div class="eyebrow">Independent work</div>
-                    <h2>Personal projects</h2>
+                    <div class="eyebrow">Selected work · Independent projects</div>
+                    <h2>Ideas, put to work.</h2>
                 </div>
                 <p>Projects that explore the connection between a model's score, the decisions it supports, and the
                     system around it.</p>
             </div>
             <div class="projects">
                 <article class="project">
+                    <div class="project-visual visual-risk" aria-label="Fraud scoring workflow">
+                        <div class="visual-caption">Risk is a score. Action is a decision.</div>
+                        <div class="decision-path"><span>Transactions<small>past-only features</small></span><span class="path-arrow" aria-hidden="true">→</span><span>Risk model<small>compare & evaluate</small></span><span class="path-arrow" aria-hidden="true">→</span><span>Decision<small>approve / review</small></span></div>
+                    </div>
                     <div class="type">Predictive modeling · Decision design</div>
                     <h3>Payment fraud risk modeling</h3>
                     <p>A fraud-scoring prototype that compares rules, Logistic Regression, and XGBoost, then turns risk
@@ -828,6 +256,11 @@
                         </svg></a>
                 </article>
                 <article class="project">
+                    <div class="project-visual visual-query" aria-label="Natural language to SQL workflow">
+                        <div class="visual-caption">Ask a question. Inspect the query.</div>
+                        <div class="query-prompt">“What does the data tell us?”</div>
+                        <div class="query-code"><span>question</span> → schema → SQL → <span>read-only results</span></div>
+                    </div>
                     <div class="type">Applied AI · Data access</div>
                     <h3>Text-to-SQL data assistant</h3>
                     <p>A Streamlit assistant that imports CSV files into SQLite and uses relevant schema context to
@@ -855,7 +288,7 @@
             <div class="section-head">
                 <div>
                     <div class="eyebrow">Kaggle and academic projects</div>
-                    <h2>Forecasting studies</h2>
+                    <h2>Putting baselines to the test.</h2>
                 </div>
                 <p>Two different settings for the same question: does a more complex model improve on a useful baseline?
                 </p>
@@ -911,7 +344,6 @@
             </div>
         </section>
 
-
         <section class="section about" id="about">
             <div>
                 <div class="eyebrow">About me</div>
@@ -935,9 +367,9 @@
             </div>
         </section>
         <section class="contact" id="contact">
-            <div class="eyebrow">Let's connect</div>
-            <h2>Interested in the work?<br>Let's talk.</h2>
-            <p>I'm interested in internships across Data Science, ML Engineering, AI, and Data Analytics. I'd like to
+            <div><div class="eyebrow">The next good question</div>
+            <h2>Let’s build something<br>worth figuring out.</h2></div>
+            <div><p>I'm interested in internships across Data Science, ML Engineering, AI, and Data Analytics. I'd like to
                 contribute to modeling, AI applications, data products, and analysis that informs business decisions.
             </p>
             <div class="buttons"><a class="button primary" href="mailto:Chetsada.Phummee@gmail.com">Email me <svg
@@ -955,6 +387,7 @@
                         aria-hidden="true" focusable="false">
                         <path d="M7 17 17 7M7 7h10v10" />
                     </svg></a></div>
+            </div>
         </section>
     </main>
     <footer>
