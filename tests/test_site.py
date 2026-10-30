@@ -70,8 +70,49 @@ class PortfolioTests(unittest.TestCase):
         self.assertIn(self.page.menu['aria-controls'], self.page.ids)
 
     def test_all_portfolio_sections_remain(self):
-        for section in ('main', 'personal', 'research', 'wins', 'experience', 'about', 'contact'):
+        for section in ('main', 'personal', 'research', 'wins', 'experience', 'about', 'technologies', 'contact'):
             self.assertIn(section, self.page.ids)
+
+    def test_hackathons_precede_internship_and_projects(self):
+        sections = ('wins', 'experience', 'personal', 'research', 'about', 'technologies', 'contact')
+        positions = [self.page.ids.index(section) for section in sections]
+        self.assertEqual(positions, sorted(positions))
+
+    def test_original_introduction_is_preserved(self):
+        text = ' '.join((ROOT / 'index.html').read_text().split())
+        introduction = (
+            "I'm an Economics student working across Data Science, ML Engineering, Applied AI, and "
+            'Data Analytics. I analyze data, build and evaluate models, and develop AI applications '
+            'that support practical decisions.'
+        )
+        self.assertIn(introduction, text)
+
+    def test_languages_are_text_only(self):
+        html = (ROOT / 'index.html').read_text()
+        languages = html.split('<ul class="technology-list languages">', 1)[1].split('</ul>', 1)[0]
+        self.assertNotIn('<img', languages)
+        for name in ('Python', 'SQL', 'R'):
+            self.assertIn(f'<li>{name}</li>', languages)
+
+    def test_about_has_original_skill_rows(self):
+        html = (ROOT / 'index.html').read_text()
+        about = html.split('id="about">', 1)[1].split('</section>', 1)[0]
+        self.assertEqual(about.count('class="skillrow"'), 4)
+        self.assertNotIn('class="education"', about)
+        for label in ('Analysis and modeling', 'Evaluation', 'Data and reporting', 'Supporting engineering'):
+            self.assertIn(f'<strong>{label}</strong>', about)
+
+    def test_requested_version_two_sections_remain(self):
+        html = (ROOT / 'index.html').read_text()
+        self.assertIn('<h1>Chetsada Phummee<span>.</span></h1>', html)
+        self.assertIn('<div class="eyebrow">My toolkit</div>', html)
+        self.assertIn('<h2>Languages & technologies</h2>', html)
+        self.assertIn('<h2>Let’s connect<span>.</span></h2>', html)
+        self.assertNotIn('hero-panel', html)
+
+    def test_project_disclosures_remain(self):
+        html = (ROOT / 'index.html').read_text()
+        self.assertEqual(html.count('<details>'), 7)
 
 
 if __name__ == '__main__':
