@@ -27,4 +27,4 @@ node --check assets/site.js
 
 These check internal anchors, local assets and evidence links, unique IDs, image alternative text, external-link protection, mobile-menu accessibility attributes, section order, the original introduction, text-only language labels, the original About skill groups, and project disclosures. Browser checks should additionally cover small-screen overflow, menu open/close and Escape handling, project disclosures, keyboard navigation, and reduced motion.
 
-Team photographs, certificates, and project decks are included to document the portfolio projects. The KBTG logo belongs to KASIKORN Business-Technology Group and identifies a past internship; it does not imply endorsement.
+Team photographs, certificates, and project decks are included to document the portfolio projects. CatMium and C-Canteen include thumbnail galleries, collapsed by default behind “View project images”; each image opens its full-size local asset in a new tab, with no JavaScript required. App screenshots retain their supplied resolution. The KBTG logo belongs to KASIKORN Business-Technology Group and identifies a past internship; it does not imply endorsement.

@@ -15,6 +15,9 @@ class Page(HTMLParser):
         self.links = []
         self.resources = []
         self.images = []
+        self.linked_images = []
+        self.current_link = None
+        self.gallery_disclosures = []
         self.menu = None
         self.feed((ROOT / 'index.html').read_text())
 
@@ -24,14 +27,22 @@ class Page(HTMLParser):
             self.ids.append(attributes['id'])
         if tag == 'a':
             self.links.append(attributes)
+            self.current_link = attributes
         if tag in ('img', 'script'):
             self.resources.append(attributes.get('src', ''))
         if tag == 'link' and attributes.get('rel') in ('stylesheet', 'icon'):
             self.resources.append(attributes.get('href', ''))
         if tag == 'img':
             self.images.append(attributes)
+            self.linked_images.append((attributes, self.current_link))
+        if tag == 'details' and 'gallery-details' in attributes.get('class', '').split():
+            self.gallery_disclosures.append(attributes)
         if tag == 'button' and attributes.get('class') == 'menu-toggle':
             self.menu = attributes
+
+    def handle_endtag(self, tag):
+        if tag == 'a':
+            self.current_link = None
 
 
 class PortfolioTests(unittest.TestCase):
@@ -111,9 +122,46 @@ class PortfolioTests(unittest.TestCase):
         self.assertIn('<h2>Let’s connect<span>.</span></h2>', html)
         self.assertNotIn('hero-panel', html)
 
+    def test_galleries_are_collapsed_by_default(self):
+        self.assertEqual(len(self.page.gallery_disclosures), 2)
+        for disclosure in self.page.gallery_disclosures:
+            self.assertNotIn('open', disclosure)
+
+    def test_gallery_thumbnails_open_the_full_image(self):
+        thumbnails = [
+            (image, link) for image, link in self.page.linked_images
+            if 'gallery-photo' in image.get('class', '').split()
+        ]
+        self.assertTrue(thumbnails, 'Hackathon gallery images must be present')
+        for image, link in thumbnails:
+            with self.subTest(image=image['src']):
+                self.assertIsNotNone(link)
+                self.assertEqual(link.get('href'), image['src'])
+                self.assertEqual(link.get('target'), '_blank')
+                self.assertEqual(image.get('loading'), 'lazy')
+                self.assertGreater(int(image.get('width', 0)), 0)
+                self.assertGreater(int(image.get('height', 0)), 0)
+
+    def test_retail_project_is_not_published(self):
+        html = (ROOT / 'index.html').read_text().lower()
+        self.assertNotIn('retail sales forecasting', html)
+        self.assertNotIn('retail-sales-forecasting', html)
+
+    def test_forecasting_models_are_visible_without_expanding(self):
+        html = (ROOT / 'index.html').read_text()
+        research = html.split('id="research">', 1)[1].split('</section>', 1)[0]
+        visible = research.split('<details>', 1)[0]
+        for model in ('Random Walk', 'XGBoost', 'RNN', 'LSTM', 'Transformer', 'Chronos Bolt', 'TimesFM'):
+            self.assertIn(model, visible)
+        self.assertIn('selected using validation RMSE', visible)
+        self.assertIn('Test RMSE', visible)
+        for value in ('0.125773', '0.128986', '0.129301'):
+            self.assertIn(value, visible)
+        self.assertNotIn('Two different settings', research)
+
     def test_project_disclosures_remain(self):
         html = (ROOT / 'index.html').read_text()
-        self.assertEqual(html.count('<details>'), 7)
+        self.assertEqual(html.count('<details>'), 6)
 
 
 if __name__ == '__main__':

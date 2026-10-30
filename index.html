@@ -150,6 +150,16 @@
                                     stroke-linejoin="round" aria-hidden="true" focusable="false">
                                     <path d="M7 17 17 7M7 7h10v10" />
                                 </svg></a></div>
+                        <details class="gallery-details">
+                            <summary>View project images (5)</summary>
+                            <div class="photo-gallery" role="group" aria-label="CatMium images">
+                            <a href="assets/hackathon/CatMium/spark-hack-event.jpg" target="_blank" rel="noopener"><img class="gallery-photo" src="assets/hackathon/CatMium/spark-hack-event.jpg" alt="Spark Hack participants gathered at the event venue" width="800" height="800" loading="lazy"></a>
+                            <a href="assets/hackathon/CatMium/spark-hack-group.webp" target="_blank" rel="noopener"><img class="gallery-photo" src="assets/hackathon/CatMium/spark-hack-group.webp" alt="Spark Hack group photo featured in event coverage" width="640" height="480" loading="lazy"></a>
+                            <a href="assets/hackathon/CatMium/spark-hack-feature.png" target="_blank" rel="noopener"><img class="gallery-photo gallery-poster" src="assets/hackathon/CatMium/spark-hack-feature.png" alt="Spark Hack feature showing participants presenting their ideas" width="600" height="800" loading="lazy"></a>
+                            <a href="assets/hackathon/CatMium/system-overview.png" target="_blank" rel="noopener"><img class="gallery-photo gallery-diagram" src="assets/hackathon/CatMium/system-overview.png" alt="CatMium system concept linking acoustic sensors, AI analysis, and a dashboard" width="799" height="473" loading="lazy"></a>
+                            <a href="assets/hackathon/CatMium/dashboard-map.webp" target="_blank" rel="noopener"><img class="gallery-photo gallery-diagram" src="assets/hackathon/CatMium/dashboard-map.webp" alt="CatMium dashboard concept with map-based detection results" width="799" height="519" loading="lazy"></a>
+                            </div>
+                        </details>
                     </div>
                 </article>
                 <article class="award"><a href="assets/hackathon/C-Canteen/1772477310848.jpeg" target="_blank"
@@ -180,6 +190,17 @@
                                     stroke-linejoin="round" aria-hidden="true" focusable="false">
                                     <path d="M7 17 17 7M7 7h10v10" />
                                 </svg></a></div>
+                        <details class="gallery-details">
+                            <summary>View project images (6)</summary>
+                            <div class="photo-gallery" role="group" aria-label="C-Canteen images">
+                            <a href="assets/hackathon/C-Canteen/team-presentation.jpg" target="_blank" rel="noopener"><img class="gallery-photo" src="assets/hackathon/C-Canteen/team-presentation.jpg" alt="C-Canteen team presenting the project with a microphone" width="800" height="533" loading="lazy"></a>
+                            <a href="assets/hackathon/C-Canteen/app-home.png" target="_blank" rel="noopener"><img class="gallery-photo gallery-app" src="assets/hackathon/C-Canteen/app-home.png" alt="C-Canteen app home screen" width="101" height="199" loading="lazy"></a>
+                            <a href="assets/hackathon/C-Canteen/app-canteen.png" target="_blank" rel="noopener"><img class="gallery-photo gallery-app" src="assets/hackathon/C-Canteen/app-canteen.png" alt="C-Canteen app cafeteria overview screen" width="101" height="199" loading="lazy"></a>
+                            <a href="assets/hackathon/C-Canteen/app-store.png" target="_blank" rel="noopener"><img class="gallery-photo gallery-app" src="assets/hackathon/C-Canteen/app-store.png" alt="C-Canteen app store page and food listings" width="101" height="199" loading="lazy"></a>
+                            <a href="assets/hackathon/C-Canteen/app-menu.png" target="_blank" rel="noopener"><img class="gallery-photo gallery-app" src="assets/hackathon/C-Canteen/app-menu.png" alt="C-Canteen app menu and navigation screen" width="101" height="199" loading="lazy"></a>
+                            <a href="assets/hackathon/C-Canteen/app-orders.png" target="_blank" rel="noopener"><img class="gallery-photo gallery-app" src="assets/hackathon/C-Canteen/app-orders.png" alt="C-Canteen app order management screen" width="101" height="199" loading="lazy"></a>
+                            </div>
+                        </details>
                     </div>
                 </article>
             </div>
@@ -284,53 +305,68 @@
         <section class="section" id="research">
             <div class="section-head">
                 <div>
-                    <div class="eyebrow">Kaggle and academic projects</div>
+                    <div class="eyebrow">Featured academic project · Financial time series</div>
                     <h2>Putting baselines to the test.</h2>
                 </div>
-                <p>Two different settings for the same question: does a more complex model improve on a useful baseline?
-                </p>
+                <p>Can machine learning and macroeconomic context improve on using today’s exchange rate as the next prediction?</p>
             </div>
-            <div class="projects">
+            <div class="projects forecast-projects">
                 <article class="project">
-                    <div class="type">Kaggle project · Retail</div>
-                    <h3>Retail sales forecasting</h3>
-                    <p>Forecasting 90 days of sales for 500 store-item series using 913,000 historical records.</p>
-                    <div class="finding">5.939 mean validation MAE<small>LightGBM + seasonal blend, compared with 6.152
-                            for standalone LightGBM.</small></div>
-                    <div class="tags"><span>LightGBM</span><span>Ridge</span><span>Seasonality</span><span>Temporal
-                            validation</span></div>
-                    <details>
-                        <summary>Methods, results, and limitations</summary>
-                        <p>Compared six approaches across eight expanding-window origins. Calendar, lag, and shifted
-                            rolling features were checked for future-sales leakage. The fixed 50:50 ensemble reduced
-                            mean validation MAE by 3.46% and generated 45,000 final forecasts.</p>
-                        <p>Validation was reused during development, and the 2017 comparison is diagnostic. Final
-                            forecast actuals are unavailable. The target is observed sales, which may differ from
-                            unconstrained demand.</p>
-                    </details><a class="button" href="https://github.com/chetsada-phu/retail-sales-forecasting"
-                        target="_blank" rel="noopener">View repository <svg class="link-arrow" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
-                            stroke-linejoin="round" aria-hidden="true" focusable="false">
-                            <path d="M7 17 17 7M7 7h10v10" />
-                        </svg></a>
-                </article>
-                <article class="project">
-                    <div class="type">Academic project · Financial time series</div>
+                    <div class="type">USD/THB · Model comparison · Rolling evaluation</div>
                     <h3>USD/THB forecasting</h3>
-                    <p>Comparing univariate and multivariate forecasts with exchange-rate history, rate and inflation
-                        differentials, Brent prices, and VIX.</p>
-                    <div class="finding">A strong baseline is hard to beat.<small>The validation-selected RNN did not
-                            outperform Random Walk on Test RMSE.</small></div>
-                    <div class="tags"><span>PyTorch</span><span>XGBoost</span><span>Chronos</span><span>TimesFM</span>
+                    <p>I compared seven approaches to predict the next observed USD/THB exchange rate, testing both
+                        exchange-rate history alone and additional economic indicators.</p>
+                    <div class="forecast-columns">
+                        <div>
+                            <h4>Two experiments</h4>
+                            <p><strong>Univariate:</strong> exchange-rate history only.<br>
+                                <strong>Multivariate:</strong> exchange-rate history plus interest-rate and inflation
+                                differentials, Brent oil prices, and VIX. Random Walk and the pretrained models remain
+                                univariate references.</p>
+                            <h4>Seven models, different assumptions</h4>
+                            <ul class="model-list">
+                                <li><strong>Random Walk:</strong> the next rate equals the latest observed rate; the baseline to beat.</li>
+                                <li><strong>XGBoost:</strong> gradient-boosted trees for nonlinear relationships in the input features.</li>
+                                <li><strong>RNN:</strong> a recurrent network for learning patterns across sequential observations.</li>
+                                <li><strong>LSTM:</strong> a gated recurrent network designed to retain and forget information over time.</li>
+                                <li><strong>Transformer:</strong> an attention-based sequence model.</li>
+                                <li><strong>Chronos Bolt:</strong> a pretrained time-series model used without fine-tuning.</li>
+                                <li><strong>TimesFM:</strong> a second pretrained time-series model used without fine-tuning.</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Select on validation. Evaluate on test.</h4>
+                            <p>Used 689 observations from January 2024 to September 2026, with 501-observation rolling
+                                training windows, 103 validation targets, and 85 test targets. Scalers were fitted inside
+                                each window; XGBoost and neural models were refitted at each forecast origin.</p>
+                            <div class="finding">RNN was selected using validation RMSE.<small>Hyperparameters and model
+                                    choice were fixed before test evaluation; test rankings were not used to select a replacement.</small></div>
+                            <table class="forecast-results">
+                                <caption>Test RMSE · THB per USD · Lower is better</caption>
+                                <thead><tr><th scope="col">Experiment</th><th scope="col">Random Walk</th><th scope="col">Selected RNN</th></tr></thead>
+                                <tbody>
+                                    <tr><th scope="row">Univariate</th><td>0.125773</td><td>0.128986</td></tr>
+                                    <tr><th scope="row">Multivariate</th><td>0.125773</td><td>0.129301</td></tr>
+                                </tbody>
+                            </table>
+                            <p><strong>What I learned:</strong> RNN had the best validation RMSE in both experiments, but
+                                did not beat Random Walk on test RMSE. More complexity and additional inputs did not
+                                guarantee better out-of-sample performance.</p>
+                        </div>
                     </div>
+                    <div class="tags"><span>Python</span><span>PyTorch</span><span>XGBoost</span><span>Chronos Bolt</span><span>TimesFM</span><span>Rolling validation</span></div>
                     <details>
-                        <summary>Methods, results, and limitations</summary>
-                        <p>Benchmarked seven approaches: Random Walk, XGBoost, RNN, LSTM, Transformer, Chronos, and
-                            TimesFM. Used 501-observation rolling histories, 103 validation forecasts, and 85 test
-                            forecasts. Hyperparameters were selected on Validation RMSE and fixed during Test.</p>
-                        <p>The revised test period had been inspected previously. Macro publication timing and
-                            foundation-model pretraining overlap are unverified. These results do not establish trading
-                            performance.</p>
+                        <summary>Validation results, implementation, and limitations</summary>
+                        <p><strong>Validation RMSE:</strong> univariate RNN 0.180181 versus Random Walk 0.181736;
+                            multivariate RNN 0.178708 versus Random Walk 0.181736. Settings were chosen on aggregate
+                            validation RMSE. Earlier actual observations could enter later rolling windows once observed.</p>
+                        <p><strong>Implementation:</strong> separate univariate and multivariate notebooks, window-local
+                            scaling, rolling refits, and pinned pretrained checkpoints. Figures are retained notebook
+                            results, not a fresh full rerun of the public copies.</p>
+                        <p><strong>Limitations:</strong> the test period was revised after earlier 2026 results had been
+                            inspected, so it is not an untouched final holdout. Macro publication timing and
+                            foundation-model pretraining overlap are unverified. Small differences do not establish
+                            statistical significance or trading profitability.</p>
                     </details><a class="button" href="https://github.com/chetsada-phu/usd-thb-forecasting"
                         target="_blank" rel="noopener">View repository <svg class="link-arrow" viewBox="0 0 24 24"
                             fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
