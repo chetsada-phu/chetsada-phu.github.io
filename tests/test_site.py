@@ -1,5 +1,6 @@
 """Dependency-free checks for the GitHub Pages portfolio."""
 import unittest
+from html import unescape
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
@@ -79,7 +80,7 @@ class PortfolioTests(unittest.TestCase):
         self.assertEqual(positions, sorted(positions))
 
     def test_original_introduction_is_preserved(self):
-        text = ' '.join((ROOT / 'index.html').read_text().split())
+        text = ' '.join(unescape((ROOT / 'index.html').read_text()).split())
         introduction = (
             "I'm an Economics student working across Data Science, ML Engineering, Applied AI, and "
             'Data Analytics. I analyze data, build and evaluate models, and develop AI applications '
