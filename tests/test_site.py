@@ -79,11 +79,11 @@ class PortfolioTests(unittest.TestCase):
         positions = [self.page.ids.index(section) for section in sections]
         self.assertEqual(positions, sorted(positions))
 
-    def test_original_introduction_is_preserved(self):
+    def test_introduction_matches_requested_wording(self):
         text = ' '.join(unescape((ROOT / 'index.html').read_text()).split())
         introduction = (
-            "I'm an Economics student working across Data Science, ML Engineering, Applied AI, and "
-            'Data Analytics. I analyze data, build and evaluate models, and develop AI applications '
+            "I'm an Economics student working across Data Science, Machine Learning Engineering and Applied AI. "
+            'I analyze data, build and evaluate models, and develop AI applications '
             'that support practical decisions.'
         )
         self.assertIn(introduction, text)
