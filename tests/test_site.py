@@ -142,10 +142,13 @@ class PortfolioTests(unittest.TestCase):
                 self.assertGreater(int(image.get('width', 0)), 0)
                 self.assertGreater(int(image.get('height', 0)), 0)
 
-    def test_retail_project_is_not_published(self):
-        html = (ROOT / 'index.html').read_text().lower()
-        self.assertNotIn('retail sales forecasting', html)
-        self.assertNotIn('retail-sales-forecasting', html)
+    def test_retail_project_is_restored_below_usd_thb(self):
+        html = (ROOT / 'index.html').read_text()
+        self.assertIn('<h3>Retail sales forecasting</h3>', html)
+        self.assertIn('https://github.com/chetsada-phu/retail-sales-forecasting', html)
+        self.assertLess(html.index('<h3>USD/THB forecasting</h3>'), html.index('<h3>Retail sales forecasting</h3>'))
+        self.assertIn('5.939', html)
+        self.assertIn('6.152', html)
 
     def test_forecasting_models_are_visible_without_expanding(self):
         html = (ROOT / 'index.html').read_text()
@@ -161,7 +164,7 @@ class PortfolioTests(unittest.TestCase):
 
     def test_project_disclosures_remain(self):
         html = (ROOT / 'index.html').read_text()
-        self.assertEqual(html.count('<details>'), 6)
+        self.assertEqual(html.count('<details>'), 7)
 
 
 if __name__ == '__main__':

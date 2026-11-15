@@ -374,6 +374,29 @@
                             <path d="M7 17 17 7M7 7h10v10" />
                         </svg></a>
                 </article>
+                <article class="project" id="retail-forecasting">
+                    <div class="type">Kaggle project · Retail</div>
+                    <h3>Retail sales forecasting</h3>
+                    <p>Forecasting 90 days of sales for 500 store-item series using 913,000 historical records.</p>
+                    <div class="finding">5.939 mean validation MAE<small>LightGBM + seasonal blend, compared with 6.152
+                            for standalone LightGBM.</small></div>
+                    <div class="tags"><span>LightGBM</span><span>Ridge</span><span>Seasonality</span><span>Temporal
+                            validation</span></div>
+                    <details>
+                        <summary>Methods, results, and limitations</summary>
+                        <p>Compared six approaches across eight expanding-window origins. Calendar, lag, and shifted
+                            rolling features were checked for future-sales leakage. The fixed 50:50 ensemble reduced
+                            mean validation MAE by 3.46% and generated 45,000 final forecasts.</p>
+                        <p>Validation was reused during development, and the 2017 comparison is diagnostic. Final
+                            forecast actuals are unavailable. The target is observed sales, which may differ from
+                            unconstrained demand. These are local validation MAE results, not Kaggle leaderboard scores.</p>
+                    </details><a class="button" href="https://github.com/chetsada-phu/retail-sales-forecasting"
+                        target="_blank" rel="noopener">View repository <svg class="link-arrow" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                            stroke-linejoin="round" aria-hidden="true" focusable="false">
+                            <path d="M7 17 17 7M7 7h10v10" />
+                        </svg></a>
+                </article>
             </div>
         </section>
 
