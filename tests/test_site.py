@@ -150,6 +150,23 @@ class PortfolioTests(unittest.TestCase):
         self.assertIn('5.939', html)
         self.assertIn('6.152', html)
 
+    def test_sales_comparison_is_visible_without_expanding(self):
+        html = (ROOT / 'index.html').read_text()
+        retail = html.split('id="retail-forecasting">', 1)[1].split('</article>', 1)[0]
+        visible = retail.split('<details>', 1)[0]
+        for model, mae in (
+            ('Weekly naive', '10.915'), ('Annual 364-day', '8.485'),
+            ('Seasonal multiplicative', '6.307'), ('Ridge calendar', '6.247'),
+            ('LightGBM', '6.152'), ('50:50 LightGBM + seasonal', '5.939'),
+        ):
+            with self.subTest(model=model):
+                self.assertIn(model, visible)
+                self.assertIn(mae, visible)
+        self.assertIn('Evaluation design:', visible)
+        self.assertIn('Deliverable:', visible)
+        self.assertIn('45,000', visible)
+        self.assertIn('not Kaggle leaderboard scores', retail)
+
     def test_forecasting_models_are_visible_without_expanding(self):
         html = (ROOT / 'index.html').read_text()
         research = html.split('id="research">', 1)[1].split('</section>', 1)[0]
