@@ -122,6 +122,17 @@ class PortfolioTests(unittest.TestCase):
         self.assertIn('<h2>Let’s connect<span>.</span></h2>', html)
         self.assertNotIn('hero-panel', html)
 
+    def test_doh_certificate_is_linked_alongside_award_photo(self):
+        html = (ROOT / 'index.html').read_text()
+        card = html.split('<h3>CMISSION</h3>', 1)[1].split('</article>', 1)[0]
+        self.assertIn('assets/hackathon/CMISSION/doh-winner-certificate.jpg', card)
+        self.assertIn('Winner certificate', card)
+        self.assertIn('Award photo', card)
+        certificate = next(link for link in self.page.links
+                           if link.get('href', '').endswith('doh-winner-certificate.jpg'))
+        self.assertEqual(certificate.get('target'), '_blank')
+        self.assertIn('noopener', certificate.get('rel', ''))
+
     def test_galleries_are_collapsed_by_default(self):
         self.assertEqual(len(self.page.gallery_disclosures), 2)
         for disclosure in self.page.gallery_disclosures:
